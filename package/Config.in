@@ -840,6 +840,7 @@ source "package/qt5/qtsvg/Config.in"
 source "package/qt5/qt3d/Config.in"
 source "package/qt5/qtgamepad/Config.in"
 endmenu
+source "package/rpio_pwm/Config.in"
 endmenu
 
 endmenu
