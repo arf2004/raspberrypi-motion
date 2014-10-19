@@ -4,7 +4,8 @@
 #
 #############################################################
 
-FFMPEG_VERSION = 0.11.1
+#FFMPEG_VERSION = 0.11.1
+FFMPEG_VERSION = 2.4
 FFMPEG_SOURCE = ffmpeg-$(FFMPEG_VERSION).tar.bz2
 FFMPEG_SITE = http://ffmpeg.org/releases
 FFMPEG_INSTALL_STAGING = YES
@@ -142,19 +143,19 @@ endif
 # Explicitly disable everything that doesn't match for ARM
 # FFMPEG "autodetects" by compiling an extended instruction via AS
 # This works on compilers that aren't built for generic by default
-ifeq ($(BR2_generic_arm)$(BR2_arm7tdmi)$(BR2_arm610)$(BR2_arm710)$(BR2_arm720t)$(BR2_arm920t)$(BR2_arm922t),y)
-FFMPEG_CONF_OPT += --disable-armv5te
-endif
-ifeq ($(BR2_arm1136jf_s)$(BR2_arm1176jz_s)$(BR2_arm1176jzf-s),y)
-FFMPEG_CONF_OPT += --enable-armv6
-else
-FFMPEG_CONF_OPT += --disable-armv6 --disable-armv6t2
-endif
-ifeq ($(BR2_arm10)$(BR2_arm1136jf_s)$(BR2_arm1176jz_s)$(BR2_arm1176jzf-s)$(BR2_cortex_a5)$(BR2_cortex_a8)$(BR2_cortex_a9)$(BR2_cortex_a15),y)
-FFMPEG_CONF_OPT += --enable-armvfp
-else
-FFMPEG_CONF_OPT += --disable-armvfp
-endif
+#ifeq ($(BR2_generic_arm)$(BR2_arm7tdmi)$(BR2_arm610)$(BR2_arm710)$(BR2_arm720t)$(BR2_arm920t)$(BR2_arm922t),y)
+#FFMPEG_CONF_OPT += --disable-armv5te
+#endif
+#ifeq ($(BR2_arm1136jf_s)$(BR2_arm1176jz_s)$(BR2_arm1176jzf-s),y)
+#FFMPEG_CONF_OPT += --enable-armv6
+#else
+#FFMPEG_CONF_OPT += --disable-armv6 --disable-armv6t2
+#endif
+#ifeq ($(BR2_arm10)$(BR2_arm1136jf_s)$(BR2_arm1176jz_s)$(BR2_arm1176jzf-s)$(BR2_cortex_a5)$(BR2_cortex_a8)$(BR2_cortex_a9)$(BR2_cortex_a15),y)
+#FFMPEG_CONF_OPT += --enable-armvfp
+#else
+#FFMPEG_CONF_OPT += --disable-armvfp
+#endif
 ifeq ($(BR2_ARM_CPU_HAS_NEON),y)
 FFMPEG_CONF_OPT += --enable-neon
 endif
