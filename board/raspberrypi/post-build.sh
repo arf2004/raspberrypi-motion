@@ -33,6 +33,9 @@ cp board/raspberrypi/ntpdate.conf $TARGETDIR/etc/init/
 # start bluetooth daemon
 cp board/raspberrypi/bluetooth.conf $TARGETDIR/etc/init/
 
+# add a getty on the serial port
+cp board/raspberrypi/ttyAMA0.conf $TARGETDIR/etc/init/
+
 # add motion startup and config file
 cp board/raspberrypi/S80motion $TARGETDIR/etc/init.d/
 cp board/raspberrypi/motion.conf $TARGETDIR/etc/
