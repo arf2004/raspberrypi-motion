@@ -44,14 +44,14 @@ define BOOTLOADER_INSTALL_TARGET_CMDS
 
         echo "framebuffer_depth=24" >> $(TARGET_DIR)/boot/config.txt #ERIC
         echo "over_voltage=6" >> $(TARGET_DIR)/boot/config.txt #ERIC
-        echo "cma_lwm=16" >> $(TARGET_DIR)/boot/config.txt #ERIC
-        echo "cma_hwm=32" >> $(TARGET_DIR)/boot/config.txt #ERIC
-        echo "cma_offline_start=16" >> $(TARGET_DIR)/boot/config.txt #ERIC
+        #echo "cma_lwm=16" >> $(TARGET_DIR)/boot/config.txt #ERIC
+        #echo "cma_hwm=32" >> $(TARGET_DIR)/boot/config.txt #ERIC
+        #echo "cma_offline_start=16" >> $(TARGET_DIR)/boot/config.txt #ERIC
 
-        # add the _x files for csi camera support
-        echo "#uncomment these lines to add CSI camera support:" >> $(TARGET_DIR)/boot/config.txt
-        echo "#start_file=start_x.elf" >> $(TARGET_DIR)/boot/config.txt
-        echo "#fixup_file=fixup_x.dat" >> $(TARGET_DIR)/boot/config.txt
+        # enable CSI camera support
+        echo "start_file=start_x.elf" >> $(TARGET_DIR)/boot/config.txt
+        echo "fixup_file=fixup_x.dat" >> $(TARGET_DIR)/boot/config.txt
+        echo "start_x=1" >> $(TARGET_DIR)/boot/config.txt
 
 	echo "$(BR2_RASPBERRYPI_CMDLINE)" > $(TARGET_DIR)/boot/cmdline.txt
 endef
